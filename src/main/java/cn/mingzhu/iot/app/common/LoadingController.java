@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import cn.mingzhu.iot.app.bas.ResponseData;
-import cn.mingzhu.iot.app.bas.constant.DmCode;
+import cn.mingzhu.iot.app.bas.constant.ZyhCode;
 import cn.mingzhu.iot.app.bas.system.MenuEx;
 import cn.mingzhu.iot.app.bas.system.MenuService;
 import cn.mingzhu.iot.app.common.iot.device.IotDeviceEx;
@@ -53,6 +53,6 @@ public class LoadingController {
 
 		List<MenuEx> menus = menuSvc.listAllTreeNodes();
 		
-		return new ResponseData<List<MenuEx>>(DmCode.OK, menus);
+		return new ResponseData<List<MenuEx>>(ZyhCode.OK, menus);
 	}
 }

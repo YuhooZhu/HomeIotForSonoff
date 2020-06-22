@@ -9,13 +9,13 @@ import org.springframework.lang.Nullable;
  *
  * @version 1.0
  */
-public class DmApiException extends DmException {
+public class ZyhApiException extends ZyhException {
 	
 	/**
 	 * Constructor with a response status.
 	 * @param status the HTTP status (required)
 	 */
-	public DmApiException(HttpStatus status) {
+	public ZyhApiException(HttpStatus status) {
 		super(status);
 	}
 
@@ -25,7 +25,7 @@ public class DmApiException extends DmException {
 	 * @param status the HTTP status (required)
 	 * @param reason the associated reason (optional)
 	 */
-	public DmApiException(HttpStatus status, @Nullable String reason) {
+	public ZyhApiException(HttpStatus status, @Nullable String reason) {
 		super(status, reason);
 	}
 
@@ -36,7 +36,7 @@ public class DmApiException extends DmException {
 	 * @param reason the associated reason (optional)
 	 * @param cause a nested exception (optional)
 	 */
-	public DmApiException(HttpStatus status, @Nullable String reason, @Nullable Throwable cause) {
+	public ZyhApiException(HttpStatus status, @Nullable String reason, @Nullable Throwable cause) {
 		super(status, reason, cause);
 		
 	}

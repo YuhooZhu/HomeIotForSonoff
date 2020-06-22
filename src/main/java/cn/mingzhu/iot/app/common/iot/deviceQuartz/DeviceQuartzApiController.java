@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.pagehelper.PageInfo;
 
 import cn.mingzhu.iot.app.bas.ResponseData;
-import cn.mingzhu.iot.app.bas.constant.DmCode;
+import cn.mingzhu.iot.app.bas.constant.ZyhCode;
 import cn.mingzhu.iot.app.bas.constant.Pager;
 import cn.mingzhu.iot.app.bas.constant.TrcConstants;
 import cn.mingzhu.iot.app.bas.entity.DeviceQuartz;
@@ -56,7 +56,7 @@ public class DeviceQuartzApiController {
 			throw new AppEntityNotFoundException("API参数错误");
 		}
 
-		return new ResponseData<DeviceQuartz>(DmCode.CREATED, record);
+		return new ResponseData<DeviceQuartz>(ZyhCode.CREATED, record);
 	}
 
 	@PutMapping("/deviceQuartz/addlist/{id}")
@@ -72,7 +72,7 @@ public class DeviceQuartzApiController {
 
 		rslt = service.insertList(ids, id);
 
-		return new ResponseData<Integer>(DmCode.OK, rslt);
+		return new ResponseData<Integer>(ZyhCode.OK, rslt);
 	}
 	
 	@GetMapping("/deviceQuartz")
@@ -113,7 +113,7 @@ public class DeviceQuartzApiController {
 
 		PageInfo<DeviceQuartzRow> pageInfo = service.page(example, pageNumber, pageSize);
 
-		return new ResponseData<PageInfo<DeviceQuartzRow>>(DmCode.OK, pageInfo);
+		return new ResponseData<PageInfo<DeviceQuartzRow>>(ZyhCode.OK, pageInfo);
 	}
 
 	@GetMapping("/deviceQuartz/{id}")
@@ -126,7 +126,7 @@ public class DeviceQuartzApiController {
 
 		DeviceQuartzEx record = service.findExById(id);
 
-		return new ResponseData<DeviceQuartzEx>(DmCode.OK, record);
+		return new ResponseData<DeviceQuartzEx>(ZyhCode.OK, record);
 	}
 
 	@GetMapping("/deviceQuartz/byDeviceId/{deviceId}")
@@ -140,7 +140,7 @@ public class DeviceQuartzApiController {
 
 		List<DeviceQuartzRow> record = service.listRowsByDeviceId(deviceId);
 
-		return new ResponseData<List<DeviceQuartzRow>>(DmCode.OK, record);
+		return new ResponseData<List<DeviceQuartzRow>>(ZyhCode.OK, record);
 	}
 
 	@PutMapping("/deviceQuartz/{id}")
@@ -155,7 +155,7 @@ public class DeviceQuartzApiController {
 
 		DeviceQuartz rslt = service.update(record);
 
-		return new ResponseData<DeviceQuartz>(DmCode.OK, rslt);
+		return new ResponseData<DeviceQuartz>(ZyhCode.OK, rslt);
 	}
 
 	@DeleteMapping("/deviceQuartz")
@@ -170,7 +170,7 @@ public class DeviceQuartzApiController {
 		if (rslt != true) {
 			throw new AppEntityNotFoundException("删除失败！");
 		}
-		return new ResponseData<List<Integer>>(DmCode.NO_CONTENT, ids);
+		return new ResponseData<List<Integer>>(ZyhCode.NO_CONTENT, ids);
 	}
 
 	@ApiOperation(value = "开", notes = "开启任务", produces = "application/json")
@@ -182,7 +182,7 @@ public class DeviceQuartzApiController {
 
 		DeviceQuartz rslt = service.updateStateToOn(id);
 
-		return new ResponseData<DeviceQuartz>(DmCode.OK, rslt);
+		return new ResponseData<DeviceQuartz>(ZyhCode.OK, rslt);
 	}
 
 	@ApiOperation(value = "关", notes = "关闭任务", produces = "application/json")
@@ -194,6 +194,6 @@ public class DeviceQuartzApiController {
 
 		DeviceQuartz rslt = service.updateStateToOff(id);
 
-		return new ResponseData<DeviceQuartz>(DmCode.OK, rslt);
+		return new ResponseData<DeviceQuartz>(ZyhCode.OK, rslt);
 	}
 }

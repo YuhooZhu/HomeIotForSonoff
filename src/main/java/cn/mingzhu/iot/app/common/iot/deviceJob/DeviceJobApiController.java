@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.pagehelper.PageInfo;
 
 import cn.mingzhu.iot.app.bas.ResponseData;
-import cn.mingzhu.iot.app.bas.constant.DmCode;
+import cn.mingzhu.iot.app.bas.constant.ZyhCode;
 import cn.mingzhu.iot.app.bas.constant.Pager;
 import cn.mingzhu.iot.app.bas.constant.TrcConstants;
 import cn.mingzhu.iot.app.bas.entity.DeviceJob;
@@ -57,7 +57,7 @@ public class DeviceJobApiController {
 			throw new AppEntityNotFoundException("API参数错误");
 		}
 
-		return new ResponseData<DeviceJob>(DmCode.CREATED, record);
+		return new ResponseData<DeviceJob>(ZyhCode.CREATED, record);
 	}
 	
 	@PostMapping("/deviceWork")
@@ -75,7 +75,7 @@ public class DeviceJobApiController {
 			throw new AppEntityNotFoundException("API参数错误");
 		}
 
-		return new ResponseData<DeviceWork>(DmCode.CREATED, record);
+		return new ResponseData<DeviceWork>(ZyhCode.CREATED, record);
 	}
 
 	@GetMapping("/deviceJob")
@@ -116,7 +116,7 @@ public class DeviceJobApiController {
 
 		PageInfo<DeviceJob> pageInfo = service.page(example, pageNumber, pageSize);
 
-		return new ResponseData<PageInfo<DeviceJob>>(DmCode.OK, pageInfo);
+		return new ResponseData<PageInfo<DeviceJob>>(ZyhCode.OK, pageInfo);
 	}
 
 	@GetMapping("/deviceJob/all")
@@ -127,7 +127,7 @@ public class DeviceJobApiController {
 
 		List<DeviceJob> record = service.listRowsAll();
 
-		return new ResponseData<List<DeviceJob>>(DmCode.OK, record);
+		return new ResponseData<List<DeviceJob>>(ZyhCode.OK, record);
 	}
 
 	@GetMapping("/deviceJob/{id}")
@@ -140,7 +140,7 @@ public class DeviceJobApiController {
 
 		DeviceJob record = service.findById(id);
 
-		return new ResponseData<DeviceJob>(DmCode.OK, record);
+		return new ResponseData<DeviceJob>(ZyhCode.OK, record);
 	}
 
 	@PutMapping("/deviceJob/{id}")
@@ -155,7 +155,7 @@ public class DeviceJobApiController {
 
 		DeviceJob rslt = service.update(record);
 
-		return new ResponseData<DeviceJob>(DmCode.OK, rslt);
+		return new ResponseData<DeviceJob>(ZyhCode.OK, rslt);
 	}
 
 	@DeleteMapping("/deviceJob")
@@ -170,6 +170,6 @@ public class DeviceJobApiController {
 		if (rslt != true) {
 			throw new AppEntityNotFoundException("删除失败！");
 		}
-		return new ResponseData<List<Integer>>(DmCode.NO_CONTENT, ids);
+		return new ResponseData<List<Integer>>(ZyhCode.NO_CONTENT, ids);
 	}
 }

@@ -3,7 +3,7 @@ package cn.mingzhu.iot.app.bas;
 import java.io.Serializable;
 import java.util.Map;
 
-import cn.mingzhu.iot.app.bas.constant.DmCode;
+import cn.mingzhu.iot.app.bas.constant.ZyhCode;
 import cn.mingzhu.iot.app.util.JsonUtil;
 
 public class IotRequestData<T> implements Serializable {

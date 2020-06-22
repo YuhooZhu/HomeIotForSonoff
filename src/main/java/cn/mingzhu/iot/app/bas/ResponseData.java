@@ -3,7 +3,7 @@ package cn.mingzhu.iot.app.bas;
 import java.io.Serializable;
 import java.util.Map;
 
-import cn.mingzhu.iot.app.bas.constant.DmCode;
+import cn.mingzhu.iot.app.bas.constant.ZyhCode;
 import cn.mingzhu.iot.app.util.JsonUtil;
 
 public class ResponseData<T> implements Serializable {
@@ -28,18 +28,18 @@ public class ResponseData<T> implements Serializable {
     public ResponseData() {
     }
 
-    public ResponseData(DmCode code) {
+    public ResponseData(ZyhCode code) {
         this.code = code.value();
         this.msg = code.getReasonPhrase();
     }
     
-    public ResponseData(DmCode code, T data) {
+    public ResponseData(ZyhCode code, T data) {
         this.code = code.value();
         this.msg = code.getReasonPhrase();
         this.data = data;
     }
 
-    public ResponseData(DmCode code, String msg, T data) {
+    public ResponseData(ZyhCode code, String msg, T data) {
         this.code = code.value();
         this.msg = msg;
         this.data = data;
@@ -81,19 +81,19 @@ public class ResponseData<T> implements Serializable {
     }
     
     public static <T> ResponseData<T> success() {
-        return new ResponseData<T>(DmCode.OK);
+        return new ResponseData<T>(ZyhCode.OK);
     }
 
-    public static <T> ResponseData<T> success(DmCode code, T data) {
+    public static <T> ResponseData<T> success(ZyhCode code, T data) {
         return new ResponseData<T>(code, data);
     }
 
-    public static <T> ResponseData<T> success(DmCode code, String msg, T data) {
+    public static <T> ResponseData<T> success(ZyhCode code, String msg, T data) {
         return new ResponseData<T>(code, msg, data);
     }
     
     public static ResponseData<Map<String, String>> failed(String msg, Map<String, String> data) {
-        return new ResponseData<Map<String, String>>(DmCode.BAD_REQUEST, msg, data);
+        return new ResponseData<Map<String, String>>(ZyhCode.BAD_REQUEST, msg, data);
     }
     
     public String toJsonString() {

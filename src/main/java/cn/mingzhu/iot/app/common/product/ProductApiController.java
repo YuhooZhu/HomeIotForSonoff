@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.pagehelper.PageInfo;
 
 import cn.mingzhu.iot.app.bas.ResponseData;
-import cn.mingzhu.iot.app.bas.constant.DmCode;
+import cn.mingzhu.iot.app.bas.constant.ZyhCode;
 import cn.mingzhu.iot.app.bas.constant.Pager;
 import cn.mingzhu.iot.app.bas.constant.TrcConstants;
 import cn.mingzhu.iot.app.bas.entity.Product;
@@ -53,7 +53,7 @@ public class ProductApiController {
 			throw new AppEntityNotFoundException("API参数错误");
 		}
 
-		return new ResponseData<ProductEx>(DmCode.CREATED, record);
+		return new ResponseData<ProductEx>(ZyhCode.CREATED, record);
 	}
 
 	@GetMapping("/product")
@@ -94,7 +94,7 @@ public class ProductApiController {
 
 		PageInfo<ProductRow> pageInfo = service.page(1, example, pageNumber, pageSize);
 
-		return new ResponseData<PageInfo<ProductRow>>(DmCode.OK, pageInfo);
+		return new ResponseData<PageInfo<ProductRow>>(ZyhCode.OK, pageInfo);
 	}
 
 	@GetMapping("/product/{id}")
@@ -107,7 +107,7 @@ public class ProductApiController {
 
 		ProductEx record = service.findExById(id);
 
-		return new ResponseData<ProductEx>(DmCode.OK, record);
+		return new ResponseData<ProductEx>(ZyhCode.OK, record);
 	}
 
 	@PutMapping("/product/{id}")
@@ -122,7 +122,7 @@ public class ProductApiController {
 
 		ProductEx rslt = service.update(record);
 
-		return new ResponseData<ProductEx>(DmCode.OK, rslt);
+		return new ResponseData<ProductEx>(ZyhCode.OK, rslt);
 	}
 
 	@DeleteMapping("/product")
@@ -137,6 +137,6 @@ public class ProductApiController {
 		if (rslt != true) {
 			throw new AppEntityNotFoundException("删除失败！");
 		}
-		return new ResponseData<List<Integer>>(DmCode.NO_CONTENT, ids);
+		return new ResponseData<List<Integer>>(ZyhCode.NO_CONTENT, ids);
 	}
 }

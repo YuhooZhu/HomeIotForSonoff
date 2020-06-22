@@ -3,7 +3,7 @@ package cn.mingzhu.iot.app.bas.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.Nullable;
 
-public class ApiDBUpdateException extends DmApiException {
+public class ApiDBUpdateException extends ZyhApiException {
 	/**
 	 * Constructor with a response status and a reason to add to the exception
 	 * message as explanation.

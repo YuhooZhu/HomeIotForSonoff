@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.pagehelper.PageInfo;
 
 import cn.mingzhu.iot.app.bas.ResponseData;
-import cn.mingzhu.iot.app.bas.constant.DmCode;
+import cn.mingzhu.iot.app.bas.constant.ZyhCode;
 import cn.mingzhu.iot.app.bas.constant.Pager;
 import cn.mingzhu.iot.app.bas.constant.TrcConstants;
 import cn.mingzhu.iot.app.bas.entity.IotDevice;
@@ -54,7 +54,7 @@ public class IotDeviceApiController {
 			throw new AppEntityNotFoundException("API参数错误");
 		}
 
-		return new ResponseData<IotDeviceEx>(DmCode.CREATED, record);
+		return new ResponseData<IotDeviceEx>(ZyhCode.CREATED, record);
 	}
 
 	@GetMapping("/iotDevice")
@@ -95,7 +95,7 @@ public class IotDeviceApiController {
 
 		PageInfo<IotDeviceRow> pageInfo = service.page(1, example, pageNumber, pageSize);
 
-		return new ResponseData<PageInfo<IotDeviceRow>>(DmCode.OK, pageInfo);
+		return new ResponseData<PageInfo<IotDeviceRow>>(ZyhCode.OK, pageInfo);
 	}
 
 	@GetMapping("/iotDevice/{id}")
@@ -108,7 +108,7 @@ public class IotDeviceApiController {
 
 		IotDeviceEx record = service.findExById(id);
 
-		return new ResponseData<IotDeviceEx>(DmCode.OK, record);
+		return new ResponseData<IotDeviceEx>(ZyhCode.OK, record);
 	}
 
 	@GetMapping("/iotDevice/all")
@@ -119,7 +119,7 @@ public class IotDeviceApiController {
 
 		List<IotDeviceRow> record = service.listRowsAll();
 
-		return new ResponseData<List<IotDeviceRow>>(DmCode.OK, record);
+		return new ResponseData<List<IotDeviceRow>>(ZyhCode.OK, record);
 	}
 
 	@PutMapping("/iotDevice/{id}")
@@ -134,7 +134,7 @@ public class IotDeviceApiController {
 
 		IotDeviceEx rslt = service.update(record);
 
-		return new ResponseData<IotDeviceEx>(DmCode.OK, rslt);
+		return new ResponseData<IotDeviceEx>(ZyhCode.OK, rslt);
 	}
 
 	@DeleteMapping("/iotDevice")
@@ -149,7 +149,7 @@ public class IotDeviceApiController {
 		if (rslt != true) {
 			throw new AppEntityNotFoundException("删除失败！");
 		}
-		return new ResponseData<List<Integer>>(DmCode.NO_CONTENT, ids);
+		return new ResponseData<List<Integer>>(ZyhCode.NO_CONTENT, ids);
 	}
 
 	@ApiOperation(value = "开", notes = "修改设备状态", produces = "application/json")
@@ -161,7 +161,7 @@ public class IotDeviceApiController {
 
 		IotDevice rslt = service.updateStateToOn(id);
 
-		return new ResponseData<IotDevice>(DmCode.OK, rslt);
+		return new ResponseData<IotDevice>(ZyhCode.OK, rslt);
 	}
 
 	@ApiOperation(value = "关", notes = "修改设备状态", produces = "application/json")
@@ -173,6 +173,6 @@ public class IotDeviceApiController {
 
 		IotDevice rslt = service.updateStateToOff(id);
 
-		return new ResponseData<IotDevice>(DmCode.OK, rslt);
+		return new ResponseData<IotDevice>(ZyhCode.OK, rslt);
 	}
 }

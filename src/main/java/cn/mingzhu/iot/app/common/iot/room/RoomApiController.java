@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.pagehelper.PageInfo;
 
 import cn.mingzhu.iot.app.bas.ResponseData;
-import cn.mingzhu.iot.app.bas.constant.DmCode;
+import cn.mingzhu.iot.app.bas.constant.ZyhCode;
 import cn.mingzhu.iot.app.bas.constant.Pager;
 import cn.mingzhu.iot.app.bas.constant.TrcConstants;
 import cn.mingzhu.iot.app.bas.entity.Room;
@@ -53,7 +53,7 @@ public class RoomApiController {
 			throw new AppEntityNotFoundException("API参数错误");
 		}
 
-		return new ResponseData<Room>(DmCode.CREATED, record);
+		return new ResponseData<Room>(ZyhCode.CREATED, record);
 	}
 
 	@GetMapping("/room")
@@ -93,7 +93,7 @@ public class RoomApiController {
 
 		PageInfo<RoomRow> pageInfo = service.page(example, pageNumber, pageSize);
 
-		return new ResponseData<PageInfo<RoomRow>>(DmCode.OK, pageInfo);
+		return new ResponseData<PageInfo<RoomRow>>(ZyhCode.OK, pageInfo);
 	}
 
 	@GetMapping("/room/{id}")
@@ -106,7 +106,7 @@ public class RoomApiController {
 
 		RoomEx record = service.findExById(id);
 
-		return new ResponseData<RoomEx>(DmCode.OK, record);
+		return new ResponseData<RoomEx>(ZyhCode.OK, record);
 	}
 
 	@PutMapping("/room/{id}")
@@ -121,7 +121,7 @@ public class RoomApiController {
 
 		Room rslt = service.update(record);
 
-		return new ResponseData<Room>(DmCode.OK, rslt);
+		return new ResponseData<Room>(ZyhCode.OK, rslt);
 	}
 
 	@DeleteMapping("/room")
@@ -136,7 +136,7 @@ public class RoomApiController {
 		if (rslt != true) {
 			throw new AppEntityNotFoundException("删除失败！");
 		}
-		return new ResponseData<List<Integer>>(DmCode.NO_CONTENT, ids);
+		return new ResponseData<List<Integer>>(ZyhCode.NO_CONTENT, ids);
 	}
 
 	@ApiOperation(value = "开", notes = "修改房间状态", produces = "application/json")
@@ -148,7 +148,7 @@ public class RoomApiController {
 
 		Room rslt = service.updateStateToOn(id);
 
-		return new ResponseData<Room>(DmCode.OK, rslt);
+		return new ResponseData<Room>(ZyhCode.OK, rslt);
 	}
 
 	@ApiOperation(value = "关", notes = "修改房间状态", produces = "application/json")
@@ -160,6 +160,6 @@ public class RoomApiController {
 
 		Room rslt = service.updateStateToOff(id);
 
-		return new ResponseData<Room>(DmCode.OK, rslt);
+		return new ResponseData<Room>(ZyhCode.OK, rslt);
 	}
 }

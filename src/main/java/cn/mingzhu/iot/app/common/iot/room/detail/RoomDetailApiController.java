@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.pagehelper.PageInfo;
 
 import cn.mingzhu.iot.app.bas.ResponseData;
-import cn.mingzhu.iot.app.bas.constant.DmCode;
+import cn.mingzhu.iot.app.bas.constant.ZyhCode;
 import cn.mingzhu.iot.app.bas.constant.Pager;
 import cn.mingzhu.iot.app.bas.constant.TrcConstants;
 import cn.mingzhu.iot.app.bas.entity.RoomDetail;
@@ -54,7 +54,7 @@ public class RoomDetailApiController {
 			throw new AppEntityNotFoundException("API参数错误");
 		}
 
-		return new ResponseData<RoomDetail>(DmCode.CREATED, record);
+		return new ResponseData<RoomDetail>(ZyhCode.CREATED, record);
 	}
 
 	@PutMapping("/roomdetail/addlist/{id}")
@@ -70,7 +70,7 @@ public class RoomDetailApiController {
 
 		rslt = service.insertList(ids, id);
 
-		return new ResponseData<Integer>(DmCode.OK, rslt);
+		return new ResponseData<Integer>(ZyhCode.OK, rslt);
 	}
 	
 	@GetMapping("/roomdetail")
@@ -102,7 +102,7 @@ public class RoomDetailApiController {
 
 		PageInfo<RoomDetailRow> pageInfo = service.page(example, pageNumber, pageSize);
 
-		return new ResponseData<PageInfo<RoomDetailRow>>(DmCode.OK, pageInfo);
+		return new ResponseData<PageInfo<RoomDetailRow>>(ZyhCode.OK, pageInfo);
 	}
 
 	@GetMapping("/roomdetail/{id}")
@@ -115,7 +115,7 @@ public class RoomDetailApiController {
 
 		RoomDetailRow record = service.findRowById(id);
 
-		return new ResponseData<RoomDetailRow>(DmCode.OK, record);
+		return new ResponseData<RoomDetailRow>(ZyhCode.OK, record);
 	}
 
 	@DeleteMapping("/roomdetail")
@@ -130,6 +130,6 @@ public class RoomDetailApiController {
 		if (rslt != true) {
 			throw new AppEntityNotFoundException("删除失败！");
 		}
-		return new ResponseData<List<Integer>>(DmCode.NO_CONTENT, ids);
+		return new ResponseData<List<Integer>>(ZyhCode.NO_CONTENT, ids);
 	}
 }

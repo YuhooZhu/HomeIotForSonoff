@@ -1,7 +1,7 @@
 package cn.mingzhu.iot.app.bas.constant;
 
 
-public enum DmCode {
+public enum ZyhCode {
 	/**
 	 * GET, PUT, PATCH (OK)
 	 */
@@ -58,7 +58,7 @@ public enum DmCode {
 
 	private final String reasonPhrase;
 	
-	DmCode(int value, String reasonPhrase) {
+	ZyhCode(int value, String reasonPhrase) {
 		this.value = value;
 		this.reasonPhrase = reasonPhrase;
 	}
@@ -79,7 +79,7 @@ public enum DmCode {
 	
 	/**
 	 * Return the HTTP status series of this status code.
-	 * @see DmCode.Series
+	 * @see ZyhCode.Series
 	 */
 	public Series series() {
 		return Series.valueOf(this);
@@ -87,7 +87,7 @@ public enum DmCode {
 	
 	/**
 	 * Whether this status code is in the HTTP series
-	 * {@link org.springframework.http.DmCode.Series#INFORMATIONAL}.
+	 * {@link org.springframework.http.ZyhCode.Series#INFORMATIONAL}.
 	 * This is a shortcut for checking the value of {@link #series()}.
 	 * @see #series()
 	 */
@@ -97,7 +97,7 @@ public enum DmCode {
 
 	/**
 	 * Whether this status code is in the HTTP series
-	 * {@link org.springframework.http.DmCode.Series#SUCCESSFUL}.
+	 * {@link org.springframework.http.ZyhCode.Series#SUCCESSFUL}.
 	 * This is a shortcut for checking the value of {@link #series()}.
 	 * @see #series()
 	 */
@@ -107,7 +107,7 @@ public enum DmCode {
 
 	/**
 	 * Whether this status code is in the HTTP series
-	 * {@link org.springframework.http.DmCode.Series#REDIRECTION}.
+	 * {@link org.springframework.http.ZyhCode.Series#REDIRECTION}.
 	 * This is a shortcut for checking the value of {@link #series()}.
 	 * @see #series()
 	 */
@@ -117,7 +117,7 @@ public enum DmCode {
 
 	/**
 	 * Whether this status code is in the HTTP series
-	 * {@link org.springframework.http.DmCode.Series#CLIENT_ERROR}.
+	 * {@link org.springframework.http.ZyhCode.Series#CLIENT_ERROR}.
 	 * This is a shortcut for checking the value of {@link #series()}.
 	 * @see #series()
 	 */
@@ -127,7 +127,7 @@ public enum DmCode {
 
 	/**
 	 * Whether this status code is in the HTTP series
-	 * {@link org.springframework.http.DmCode.Series#SERVER_ERROR}.
+	 * {@link org.springframework.http.ZyhCode.Series#SERVER_ERROR}.
 	 * This is a shortcut for checking the value of {@link #series()}.
 	 * @see #series()
 	 */
@@ -137,8 +137,8 @@ public enum DmCode {
 
 	/**
 	 * Whether this status code is in the HTTP series
-	 * {@link org.springframework.http.DmCode.Series#CLIENT_ERROR} or
-	 * {@link org.springframework.http.DmCode.Series#SERVER_ERROR}.
+	 * {@link org.springframework.http.ZyhCode.Series#CLIENT_ERROR} or
+	 * {@link org.springframework.http.ZyhCode.Series#SERVER_ERROR}.
 	 * This is a shortcut for checking the value of {@link #series()}.
 	 * @since 5.0
 	 * @see #is4xxClientError()
@@ -162,8 +162,8 @@ public enum DmCode {
 	 * @return the enum constant with the specified numeric value
 	 * @throws IllegalArgumentException if this enum has no constant for the specified numeric value
 	 */
-	public static DmCode valueOf(int statusCode) {
-		DmCode status = resolve(statusCode);
+	public static ZyhCode valueOf(int statusCode) {
+		ZyhCode status = resolve(statusCode);
 		if (status == null) {
 			throw new IllegalArgumentException("No matching constant for [" + statusCode + "]");
 		}
@@ -176,8 +176,8 @@ public enum DmCode {
 	 * @return the corresponding {@code DmCode}, or {@code null} if not found
 	 * @since 5.0
 	 */
-	public static DmCode resolve(int statusCode) {
-		for (DmCode status : values()) {
+	public static ZyhCode resolve(int statusCode) {
+		for (ZyhCode status : values()) {
 			if (status.value == statusCode) {
 				return status;
 			}
@@ -213,7 +213,7 @@ public enum DmCode {
 		 * @return the enum constant of this type with the corresponding series
 		 * @throws IllegalArgumentException if this enum has no corresponding constant
 		 */
-		public static Series valueOf(DmCode status) {
+		public static Series valueOf(ZyhCode status) {
 			return valueOf(status.value);
 		}
 

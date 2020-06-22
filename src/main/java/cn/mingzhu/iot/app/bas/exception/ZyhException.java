@@ -9,13 +9,13 @@ import org.springframework.web.server.ResponseStatusException;
  *
  * @version 1.0
  */
-public class DmException extends ResponseStatusException {
+public class ZyhException extends ResponseStatusException {
 
 	/**
 	 * Constructor with a response status.
 	 * @param status the HTTP status (required)
 	 */
-	public DmException(HttpStatus status) {
+	public ZyhException(HttpStatus status) {
 		super(status);
 	}
 
@@ -25,7 +25,7 @@ public class DmException extends ResponseStatusException {
 	 * @param status the HTTP status (required)
 	 * @param reason the associated reason (optional)
 	 */
-	public DmException(HttpStatus status, @Nullable String reason) {
+	public ZyhException(HttpStatus status, @Nullable String reason) {
 		super(status, reason);
 	}
 
@@ -36,7 +36,7 @@ public class DmException extends ResponseStatusException {
 	 * @param reason the associated reason (optional)
 	 * @param cause a nested exception (optional)
 	 */
-	public DmException(HttpStatus status, @Nullable String reason, @Nullable Throwable cause) {
+	public ZyhException(HttpStatus status, @Nullable String reason, @Nullable Throwable cause) {
 		super(status, reason, cause);
 		
 	}
