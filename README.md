@@ -12,3 +12,5 @@ Feature
 | timing  | use quartz to do sth timing |
 | room control  | a room can contain devices, have api can control room |
 | on & off | use sonoff Diy api|
+
+if someone need,i will push docker(not yet ,but if someone need)
