@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="utf-8">
+</head>
+<section class="content-header">
+	<h1>项目出库查询</h1>
+</section>
+<section class="content container-fluid">
+	<div class="nav-tabs-custom" th:attr="data-default-active=${type}">
+		<ul id="dm-std-tab" class="nav nav-tabs">
+			<li th:class="${type} == 'list' ? 'active' : ''"><a href="#tab-list" data-toggle="tab" aria-expanded="true">项目出库查询</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab-list"></div>
+
+			<div id="toolbar">
+				<div class="btn-group btn-group-sm">
+					<button id="dm-add-btn" class="btn btn-primary">
+						<i class="glyphicon glyphicon-plus"></i> 新建
+					</button>
+				</div>
+				<div class="btn-group btn-group-sm">
+					<button id="dm-delete-btn" class="btn btn-primary">
+						<i class="glyphicon glyphicon-trash"></i> 删除
+					</button>
+				</div>
+			</div>
+
+			<div class="table-responsive">
+				<table id="dm-std-data-table" class="table table-bordered table-hover" style="min-width: 500px;"></table>
+			</div>
+		</div>
+	</div>
+
+</section>
+<script th:src="@{${hotUrl} + '/static/js/trc/prj/prj-outgoing.min.js?rnd=' + ${rnd}}" type="text/javascript"></script>

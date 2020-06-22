@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+	<!--/* Main Header */-->
+	<header class="main-header" th:fragment="copy">
+
+		<!--/* Logo */-->
+		<a href="loading#welcome" class="logo"> <!--/* mini logo for sidebar mini 50x50 pixels */-->
+			<span class="logo-mini">EDM</span> <!--/* logo for regular state and mobile devices */-->
+			<span class="logo-lg">设备管理系统</span>
+		</a>
+
+		<!--/* Header Navbar */-->
+		<nav class="navbar navbar-static-top" role="navigation" style="background-repeat: no-repeat; background-position-x: 42px; background-position-y: 0px;">
+			<!--/* Sidebar toggle button */-->
+			<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+			    <span class="sr-only">Toggle navigation</span>
+			</a>
+			<!--/** Navbar Right Menu */-->
+			<div class="navbar-custom-menu">
+				<ul class="nav navbar-nav">
+					<li class="tasks-menu"><a id="fullscreen"> <i class="fa fa-dashboard fa-lg"></i>
+					</a></li>	
+					<li class="tasks-menu"><a href="#welcome"> <i
+							class="fa fa-home fa-lg"></i>
+					</a></li>
+					<li th:replace="~{common/skin::copy}"></li>
+					<!--/* User Account Menu */-->
+					<li class="dropdown user user-menu">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						    <img class="user-image user-avatar">
+                            <span class="hidden-xs user-nickname"></span>
+                            <span class="hidden-xs" id="role"></span>
+					</a>
+						<ul class="dropdown-menu">
+							<li class="user-header">
+							    <img class="img-circle user-avatar">
+								<p>
+									<span class="user-nickname"></span>
+									<small class="user-created-time"></small>
+								</p>
+								</li>
+							<li class="user-body">
+								<div class="row">
+									<div class="col-xs-12 text-center">
+										<span class="user-enterprise-name"></span>
+									</div>
+								</div>
+							</li>
+							<li class="user-footer">
+								<div class="row">
+									<div class="col-xs-4 text-center">
+										<a href="#/bas/view/user/profile" class="btn btn-default btn-flat">我的帐号</a>
+									</div>
+									<div class="col-xs-4 text-center user-enterprise-button"></div>
+									<div class="col-xs-4 text-center">
+										<a th:href="@{'/logout'}" class="btn btn-default btn-flat">退出</a>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+</body>
+</html>

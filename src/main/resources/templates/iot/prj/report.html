@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+	<h1>项目报表</h1>
+</section>
+
+<!-- Main content -->
+<section class="content container-fluid">
+	<div class="nav-tabs-custom">
+		<ul id="dm-tab" class="nav nav-tabs">
+			<li class="active"><a href="" id="tab-1" data-toggle="tab">项目报表</a></li>
+		</ul>
+		<div class="tab-content">
+			<div id="toolbar"></div>
+			<div id="dm-chart">
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="col-sm-1">
+						<input id="time" type="text" class="form-control" autocomplete="off" />
+					</div>
+					<div class="col-sm-1">
+						<button id="dm-quarter-btn" class="btn btn-primary">
+							 按季度显示
+						</button>
+					</div>
+					<div class="row">
+						<div class="chart-content col-md-12" style="height: 600px"></div>
+					</div>
+					<!-- /.row -->
+				</div>
+			</div>
+			<!-- /.box -->
+		</div>
+	</div>
+</section>
+<!-- /.content -->
+<script th:src="@{${hotUrl} + '/static/js/trc/prj/report-manger.min.js?rnd=' + ${rnd}}" type="text/javascript"></script>

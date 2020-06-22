@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="utf-8">
+</head>
+<section class="content-header">
+	<h1>项目管理</h1>
+</section>
+<section class="content container-fluid">
+	<div class="nav-tabs-custom" th:attr="data-default-active=${type}">
+		<ul id="dm-std-tab" class="nav nav-tabs">
+			<li th:class="${type} == 'list' ? 'active' : ''"><a href="#tab-list" data-toggle="tab" aria-expanded="true">项目列表</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab-list"></div>
+
+			<div id="toolbar">
+				<div class="btn-group btn-group-sm">
+					<button id="dm-add-btn" class="btn btn-primary">
+						<i class="glyphicon glyphicon-plus"></i> 新建
+					</button>
+				</div>
+				<div class="btn-group btn-group-sm">
+					<button id="dm-delete-btn" class="btn btn-primary">
+						<i class="glyphicon glyphicon-trash"></i> 删除
+					</button>
+				</div>
+				<div class="btn-group btn-group-sm">
+					<select id="dm-table-filter-type" class="form-control">
+						<option value="" selected>所有状态</option>
+						<option value="DRAFT">未完成</option>
+						<option value="DONE">已完成</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="table-responsive">
+				<table id="dm-std-data-table" class="table table-bordered table-hover" style="min-width: 500px;"></table>
+			</div>
+		</div>
+	</div>
+
+</section>
+<script th:inline="javascript">
+	/*<![CDATA[*/
+	var prjState = /*[[${prjState}]]*/null;
+	/*]]>*/
+</script>
+<script th:src="@{${hotUrl} + '/static/js/trc/prj/prj.min.js?rnd=' + ${rnd}}" type="text/javascript"></script>

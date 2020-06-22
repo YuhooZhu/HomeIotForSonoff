@@ -1,0 +1,64 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: iot
+  cloud:
+    config:
+      enabled: false
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+  session:
+    store-type: none
+  mvc:
+    throw-exception-if-no-handler-found: true #出现错误时, 直接抛出异常(便于异常统一处理，否则捕获不到404)
+  servlet:
+    multipart:
+      file-size-threshold: 0
+      location: /tmp/temp
+      max-file-size: 10MB
+      max-request-size: 10MB
+      resolve-lazily: false
+  thymeleaf:
+    cache: false
+  devtools:
+    livereload:
+      port: 35726
+    restart:
+      enabled: true                      #热部署是否生效
+      additional-paths: src/main/java    #热部署设置重启的目录
+      exclude: static/**,templates/**    #热部署逆向排除目录
+security:
+  oauth2:
+    client:
+      client-id: appClientTrc
+      client-secret: secret
+      scope: server
+
+logging:
+  level:
+    root: WARN
+    cn.dm89: DEBUG
+
+mapper:
+  identity: select uuid()
+  before: true
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+swagger:
+   version: 1.0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'  #开放所有页面节点  默认只开启了health、info两个节点
+

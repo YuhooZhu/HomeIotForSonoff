@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar" th:fragment="copy">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar Menu: style can be found in sidebar.less -->
+            <ul class="sidebar-menu" data-widget="tree">
+<th:block th:each="menu : ${menus}"><th:block th:if="${menu.type < 3}">
+              <li class="treeview">
+                  <a href="#">
+                      <i th:attr="class=${menu.icon}"></i>
+                      <span th:attr="data-index=${menuStat.index}" th:text="${menu.menuname}"></span>
+                      <span class="pull-right-container">
+                          <span class="fa fa-angle-left pull-right"></span>
+                      </span>
+                  </a>
+                  <ul class="treeview-menu">
+                      <th:block th:each="subMenu : ${menu.items}"><li th:attr="data-index=${subMenuStat.index},data-count=${subMenuStat.count}">
+                        <a th:href="@{'#' + ${subMenu.url}}">
+                            <i class="fa fa-circle-o"></i> <span th:text="${subMenu.menuname}"></span>
+                        </a>
+                      </li></th:block>
+                  </ul>
+              </li>
+</th:block></th:block>
+            </ul>
+            <!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+</body>
+</html>
