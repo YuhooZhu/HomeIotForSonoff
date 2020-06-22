@@ -3,3 +3,12 @@ Integrate Sonoff Switch Api Here, follow-up MiHome and Homekit ... And now only 
 
 
 ![SWAGGER](https://github.com/YuhooZhu/HomeIotForSonoff/blob/master/images/swagger.png)
+
+Use Swagger to test Api
+
+Feature
+|  Name   | ..  |
+|  ----  | ----  |
+| timing  | use quartz to do sth timing |
+| room control  | a room can contain devices, have api can control room |
+| on & off | use sonoff Diy api|
